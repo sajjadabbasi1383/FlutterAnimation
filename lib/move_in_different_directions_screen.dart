@@ -42,7 +42,7 @@ class _MoveAnimationState extends State<MoveAnimation> {
                           left -= 60;
                         });
                       },
-                      child: const Icon(Icons.arrow_back,size: 40,)
+                      child: const Icon(Icons.arrow_back,size: 41,)
                   ),
                   ElevatedButton(
                     style: ButtonStyle(
@@ -53,7 +53,7 @@ class _MoveAnimationState extends State<MoveAnimation> {
                         bottom += 60;
                       });
                     },
-                    child: const Icon(Icons.arrow_upward,size: 40,)
+                    child: const Icon(Icons.arrow_upward,size: 41,)
                   ),
                   ElevatedButton(
                     style: ButtonStyle(
@@ -64,7 +64,7 @@ class _MoveAnimationState extends State<MoveAnimation> {
                         bottom -= 60;
                       });
                     },
-                    child: const Icon(Icons.arrow_downward,size: 40,)
+                    child: const Icon(Icons.arrow_downward,size: 41,)
                   ),
 
                   ElevatedButton(
@@ -76,7 +76,7 @@ class _MoveAnimationState extends State<MoveAnimation> {
                         left += 60;
                       });
                     },
-                    child: const Icon(Icons.arrow_forward,size: 40,)
+                    child: const Icon(Icons.arrow_forward,size: 41,)
                   ),
                 ],
               ),

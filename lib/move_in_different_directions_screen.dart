@@ -18,10 +18,15 @@ class _MoveAnimationState extends State<MoveAnimation> {
             appBar: AppBar(
               backgroundColor: Colors.white,
               elevation: 3,
-              leading: const Icon(
-                Icons.arrow_back,
-                size: 26,
-                color: Colors.black,
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back,
+                  size: 26,
+                  color: Colors.black,
+                ),
               ),
               title: const Text(
                 "Move Animation",

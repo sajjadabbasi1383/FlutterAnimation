@@ -18,10 +18,15 @@ class _RotateAnimationState extends State<RotateAnimation> {
             appBar: AppBar(
               backgroundColor: Colors.white,
               elevation: 3,
-              leading: const Icon(
-                Icons.arrow_back,
-                size: 26,
-                color: Colors.black,
+              leading: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.arrow_back,
+                  size: 26,
+                  color: Colors.black,
+                ),
               ),
               title: const Text(
                 "Rotate Animation",
@@ -54,30 +59,30 @@ class _RotateAnimationState extends State<RotateAnimation> {
                     )
                 ),
                 Positioned(
-                  top: 334,
-                  left: 39.6,
+                  top: 336,
+                  left: 44,
                   child: AnimatedRotation(
-                    duration: const Duration(seconds: 2),
+                    duration: const Duration(seconds: 3),
                     turns: turns,
                     curve: Curves.linearToEaseOut,
                     child: Image.asset(
                       "assets/images/tire.png",
-                      width:62,
-                      height: 62,
+                      width:54,
+                      height: 54,
                     ),
                   ),
                 ),
                 Positioned(
-                  top: 335.5,
-                  left: 264,
+                  top: 337.4,
+                  left: 268,
                   child: AnimatedRotation(
-                    duration: const Duration(seconds: 2),
+                    duration: const Duration(seconds: 3),
                     turns: turns,
                     curve: Curves.linearToEaseOut,
                     child: Image.asset(
                       "assets/images/tire.png",
-                      width: 62,
-                      height: 62,
+                      width: 55,
+                      height: 55,
                     ),
                   ),
                 ),

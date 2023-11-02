@@ -7,15 +7,18 @@ class InstagramLikeAnimation extends StatefulWidget {
   State<InstagramLikeAnimation> createState() => _InstagramLikeAnimationState();
 }
 
-class _InstagramLikeAnimationState extends State<InstagramLikeAnimation> with SingleTickerProviderStateMixin{
-
+class _InstagramLikeAnimationState extends State<InstagramLikeAnimation>
+    with SingleTickerProviderStateMixin {
   late AnimationController animationController;
+
+  bool isLike=false;
 
   @override
   void initState() {
     super.initState();
-    animationController=AnimationController(vsync: this,duration: const Duration(milliseconds: 780));
-    animationController.repeat();
+    animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 200));
+    //animationController.repeat();
   }
 
   @override
@@ -66,16 +69,53 @@ class _InstagramLikeAnimationState extends State<InstagramLikeAnimation> with Si
                   ),
                   Row(
                     children: [
-                      AnimatedBuilder(animation: animationController, builder: (context, child) {
-                        return IconButton(
-                            onPressed: () {},
-                            icon: Opacity(
-                                opacity: animationController.value,
-                                child: Icon(Icons.favorite,color: Colors.red,size: 26*animationController.value,)));
-                      },),
+                      AnimatedBuilder(
+                        animation: CurvedAnimation(curve: Curves.bounceInOut,parent: animationController),
+                        builder: (context, child) {
+                          return IconButton(
+                              onPressed: () {
+                                if(isLike){
+                                  isLike=false;
+                                  animationController.reverse();
+                                }else{
+                                  isLike=true;
+                                  if(!animationController.isCompleted){
+                                    animationController.forward();
+                                  }
+                                }
+                              },
+                              icon: isLike?Opacity(
+                                  opacity: animationController.value !=
+                                          animationController.lowerBound
+                                      ? animationController.value
+                                      : 1,
+                                  child: Icon(
+                                    Icons.favorite,
+                                    color: Colors.red,
+                                    size: animationController.value !=
+                                            animationController.lowerBound
+                                        ? 26 * animationController.value
+                                        : 26,
+                                  )):
+                              Opacity(
+                                  opacity: animationController.value !=
+                                      animationController.lowerBound
+                                      ? animationController.value
+                                      : 1,
+                                  child: Icon(
+                                    Icons.favorite_outline,
+                                    color: Colors.black,
+                                    size: animationController.value !=
+                                        animationController.lowerBound
+                                        ? 26 * animationController.value
+                                        : 26,
+                                  ))
+                          );
+                        },
+                      ),
                       IconButton(
                           onPressed: () {},
-                          icon:  const Icon(Icons.messenger_outline)),
+                          icon: const Icon(Icons.messenger_outline)),
                       IconButton(
                           onPressed: () {}, icon: const Icon(Icons.send)),
                     ],

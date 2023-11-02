@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'animated_container_boxdecoration_screen.dart';
+import 'animation_instagram_like.dart';
 import 'animation_rotate_screen.dart';
 import 'animation_scale_screen.dart';
 import 'hide_show_animated_screen.dart';
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: ScaleAnimation(),
+      home: InstagramLikeAnimation(),
     );
   }
 }

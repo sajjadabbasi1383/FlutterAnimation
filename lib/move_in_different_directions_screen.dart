@@ -44,7 +44,7 @@ class _MoveAnimationState extends State<MoveAnimation> {
                           MaterialStateProperty.all(Colors.black54)),
                       onPressed: () {
                         setState(() {
-                          left -= 60;
+                          left -= 30;
                         });
                       },
                       child: const Icon(Icons.arrow_back,size: 41,)
@@ -78,7 +78,7 @@ class _MoveAnimationState extends State<MoveAnimation> {
                             MaterialStateProperty.all(Colors.black54)),
                     onPressed: () {
                       setState(() {
-                        left += 60;
+                        left += 30;
                       });
                     },
                     child: const Icon(Icons.arrow_forward,size: 41,)

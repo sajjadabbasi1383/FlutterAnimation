@@ -7,8 +7,26 @@ class DedicatedAnimations extends StatefulWidget {
   State<DedicatedAnimations> createState() => _DedicatedAnimationsState();
 }
 
-class _DedicatedAnimationsState extends State<DedicatedAnimations> {
+class _DedicatedAnimationsState extends State<DedicatedAnimations> with SingleTickerProviderStateMixin {
 
+  late AnimationController animationController;
+
+  late final Animation<double> rotateAnim=Tween<double>(begin: 0,end: 10).animate(animationController);
+
+  late final Animation<double> opacityAnim=Tween<double>(begin: 0.2,end: 1.0).animate(animationController);
+
+  late final Animation<double> sizeAnim=Tween<double>(begin: 15,end: 200).animate(animationController);
+
+  late final Animation<double> borderRadiusAnim=Tween<double>(begin: 1,end: 40).animate(animationController);
+
+  late final Animation<Color?> colorAnim=ColorTween(begin: Colors.pink,end: Colors.blueAccent).animate(animationController);
+
+  @override
+  void initState() {
+    super.initState();
+    animationController=AnimationController(vsync: this,duration: const Duration(seconds: 4));
+    animationController.repeat();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,34 +56,24 @@ class _DedicatedAnimationsState extends State<DedicatedAnimations> {
                 )
               ],
             ),
-            bottomNavigationBar: Padding(
-              padding: const EdgeInsets.all(22.0),
-              child: ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(Colors.black54)),
-                  onPressed: () {
-                    setState(() {
-
-                    });
-                  },
-                  child: const Text("Run")),
-            ),
-            body: Stack(
-              children: [
-                Container(
-                  color: Colors.white,
-                ),
-                Center(
-                    child: Image.asset(
-                      "assets/images/logo.png",
-                      width: 370,
-                      height: 370,
-                    )
-                ),
-
-
-              ],
-            )));
+            body: Center(
+              child: AnimatedBuilder(animation: animationController, builder: (context, child) {
+                return Transform.rotate(
+                    angle: rotateAnim.value,
+                  child: Opacity(
+                    opacity: opacityAnim.value,
+                    child: Container(
+                      width: sizeAnim.value,
+                      height: sizeAnim.value,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(borderRadiusAnim.value),
+                        color: colorAnim.value
+                      ),
+                    ),
+                  ),
+                );
+              },),
+            )
+        ));
   }
 }

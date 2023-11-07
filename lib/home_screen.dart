@@ -5,6 +5,7 @@ import 'package:animations/hide_show_animated_screen.dart';
 import 'package:flutter/material.dart';
 
 import 'animated_container_boxdecoration_screen.dart';
+import 'dedicated_animations_screen.dart';
 import 'move_in_different_directions_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,6 +18,7 @@ class HomeScreen extends StatelessWidget {
     "Rotate Animation",
     "Scale Animation",
     "Instagram Like Animation",
+    "Dedicated Animations",
   ];
 
   List screen = [
@@ -26,6 +28,7 @@ class HomeScreen extends StatelessWidget {
     const RotateAnimation(),
     const ScaleAnimation(),
     const InstagramLikeAnimation(),
+    const DedicatedAnimations()
   ];
 
   @override
@@ -37,14 +40,21 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(
             height: 18,
           ),
-          const Text(
-            "Animation in Flutter",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+           Row(
+             mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset("assets/images/logo.png",width: 50,height: 50,),
+              const SizedBox(width: 5,),
+              const Text(
+                "Animation in Flutter",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ],
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height / 1.2,
             child: Padding(
-              padding: const EdgeInsets.all(40.0),
+              padding: const EdgeInsets.fromLTRB(40, 20, 40, 20),
               child: GridView.builder(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.vertical,

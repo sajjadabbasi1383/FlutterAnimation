@@ -36,6 +36,12 @@ class _AnimatedContainerBoxDecorationState
           "Animated Container",
           style: TextStyle(color: Colors.black, fontSize: 17),
         ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20),
+            child: Image.asset("assets/images/logo.png",width: 50,height: 50,),
+          )
+        ],
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(22.0),

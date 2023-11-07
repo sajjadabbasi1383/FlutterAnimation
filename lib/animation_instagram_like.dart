@@ -42,6 +42,12 @@ class _InstagramLikeAnimationState extends State<InstagramLikeAnimation>
                 "Instagram Like Animation",
                 style: TextStyle(color: Colors.black, fontSize: 17),
               ),
+              actions: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: Image.asset("assets/images/logo.png",width: 50,height: 50,),
+                )
+              ],
             ),
             body: SizedBox(
               width: double.infinity,
